@@ -1,0 +1,315 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Lender | Login</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#2563eb,#0f172a);
+
+overflow:hidden;
+
+}
+
+.login-card{
+
+width:430px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(18px);
+
+padding:40px;
+
+border-radius:20px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+color:white;
+
+animation:fade .8s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.logo{
+
+width:90px;
+
+height:90px;
+
+border-radius:50%;
+
+background:white;
+
+color:#2563eb;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:auto;
+
+font-size:40px;
+
+margin-bottom:20px;
+
+}
+
+h2{
+
+text-align:center;
+
+font-weight:700;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+opacity:.8;
+
+margin-bottom:30px;
+
+}
+
+.form-control{
+
+height:50px;
+
+border-radius:12px;
+
+}
+
+.btn-login{
+
+height:50px;
+
+font-size:18px;
+
+font-weight:600;
+
+border-radius:12px;
+
+background:#2563eb;
+
+border:none;
+
+}
+
+.btn-login:hover{
+
+background:#1d4ed8;
+
+}
+
+.register{
+
+text-align:center;
+
+margin-top:20px;
+
+}
+
+.register a{
+
+color:#fff;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+.alert{
+
+border-radius:12px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+<div class="logo">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</div>
+
+<h2>Smart Lender</h2>
+
+<p class="subtitle">
+
+AI Powered Loan Eligibility System
+
+</p>
+
+{% if error %}
+
+<div class="alert alert-danger">
+
+{{ error }}
+
+</div>
+
+{% endif %}
+
+<form action="/loginUser" method="POST">
+
+<div class="mb-3">
+
+<label>Email Address</label>
+
+<input
+type="email"
+name="email"
+class="form-control"
+placeholder="Enter Email"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label>Password</label>
+
+<div class="input-group">
+
+<input
+type="password"
+name="password"
+id="password"
+class="form-control"
+placeholder="Enter Password"
+required>
+
+<button
+class="btn btn-light"
+type="button"
+onclick="togglePassword()">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<div class="form-check mb-3">
+
+<input class="form-check-input"
+type="checkbox">
+
+<label class="form-check-label">
+
+Remember Me
+
+</label>
+
+</div>
+
+<button
+class="btn btn-primary btn-login w-100">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Login
+
+</button>
+
+</form>
+
+<div class="register">
+
+Don't have an account?
+
+<a href="/register">
+
+Create Account
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+const pass=document.getElementById("password");
+
+if(pass.type==="password"){
+
+pass.type="text";
+
+}else{
+
+pass.type="password";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
+```
